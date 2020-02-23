@@ -152,7 +152,7 @@
             <form id="create" onSubmit = { event => event.preventDefault() }>
               <input placeholder='url' onChange={ (event)=> this.setState({ url: event.target.value })}/>
               <input placeholder='category' onChange={ (event)=> this.setState({ category: event.target.value }) }/>
-              <button onClick={ create }>Create</button>
+              <button onClick={ create } path="">Create</button>
             </form>
           );
         }
@@ -195,7 +195,7 @@
               <Route render={({location}) => <Nav path={location.pathname} bookmarks={bookmarks} />} />
               <Create create={create}/>
               <Switch>
-                <Route path={'/:filter?'} render={ ({ location }) => <Bookmarks path={ location.pathname } bookmarks={ bookmarks } destroy = {destroy}/> } />
+                <Route path={'/:category?'} render={ ({ location }) => <Bookmarks path={ location.pathname } bookmarks={ bookmarks } destroy = {destroy}/> } />
               </Switch>
             </HashRouter>
           )
